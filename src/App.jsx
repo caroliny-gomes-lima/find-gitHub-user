@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Route, Routes } from "react-router";
+import HomePage from "./pages/home-page";
+import Styles from "./App-styles";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Styles.Background>
+        <Styles.Ellipse
+          src="/src/assets/images/ellipse-left.png"
+          $top={"20vh"}
+          $left={"-1vw"}
+        />
+        <Styles.VectorGroup src="/src/assets/images/vector-group.png" />
+        <Styles.Ellipse
+          src="/src/assets/images/ellipse-right.png"
+          $top={"0vh"}
+          $left={"70vw"}
+        />
+        <Styles.Container>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+          </Routes>
+        </Styles.Container>
+      </Styles.Background>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
